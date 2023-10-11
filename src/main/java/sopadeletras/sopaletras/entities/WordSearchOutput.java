@@ -1,6 +1,7 @@
 package sopadeletras.sopaletras.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 // clase hija que hereda de la clase principal WordSearchInput
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -29,7 +30,7 @@ public class WordSearchOutput extends WordSearchInput {
     public void setContains(boolean contains) {
         this.contains = contains;
     }
-
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public Integer getStart_row() {
         return start_row;
     }
@@ -37,7 +38,7 @@ public class WordSearchOutput extends WordSearchInput {
     public void setStart_row(Integer start_row) {
         this.start_row = start_row;
     }
-
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public Integer getStart_col() {
         return start_col;
     }

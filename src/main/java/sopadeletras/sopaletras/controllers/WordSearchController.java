@@ -31,10 +31,11 @@ public class WordSearchController {
                     wordSearchInput.getRows(),
                     wordSearchInput.getWord(),
                     true,
-                    0,
-                    0
+                    WordSearchService.getRowFound(),
+                    WordSearchService.getColFound()
             );
         } else {
+
             return new WordSearchOutput(wordSearchInput.getSearchword(),
                     wordSearchInput.getRows(),
                     wordSearchInput.getWord(),

@@ -3,7 +3,9 @@ package sopadeletras.sopaletras.services;
 public class WordSearchService {
 
     // hacer un seguimiento
-    static boolean[][] visited;
+    private static boolean[][] visited;
+    private static  int rowFound;
+    private static  int colFound;
     public static boolean search(char[][] matrix, String word) {
         //Obtener el número de filas son igual a la longitud del tablero
         int rows = matrix.length;
@@ -13,6 +15,8 @@ public class WordSearchService {
         for (int i = 0; i < rows; i++){
             for (int j = 0; j < cols; j ++){
                 if (word.charAt(0) == matrix[i][j] && searchWord(i, j, 0, word, matrix)) {
+                    rowFound = i;
+                    colFound = j;
                     return true;
                 }
             }
@@ -42,5 +46,21 @@ public class WordSearchService {
         }
         visited[i][j] = true;
         return false;
+    }
+
+    public static int getRowFound() {
+        return rowFound;
+    }
+
+    public static void setRowFound(int rowFound) {
+        WordSearchService.rowFound = rowFound;
+    }
+
+    public static int getColFound() {
+        return colFound;
+    }
+
+    public static void setColFound(int colFound) {
+        WordSearchService.colFound = colFound;
     }
 }
