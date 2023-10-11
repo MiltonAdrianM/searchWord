@@ -8,6 +8,8 @@ import sopadeletras.sopaletras.entities.WordSearchInput;
 import sopadeletras.sopaletras.entities.WordSearchOutput;
 import sopadeletras.sopaletras.services.WordSearchService;
 
+import java.util.Arrays;
+
 /**
  *
  * @author milton-adrian
@@ -41,9 +43,14 @@ public class WordSearchController {
     }
 
     private char[][] fillMatrix(int rows, String searchword) {
-        return new char[rows][];
+        char [][] matrix = new char[rows][];
+        int amount = searchword.length() / rows;
+        int col = 0;
+        for (int i = 0; i < searchword.length(); i+=amount) {
+            matrix[col] = searchword.substring(i, i + amount).toCharArray();
+            col++;
+        }
+        return matrix;
     }
-
-
 }
 
