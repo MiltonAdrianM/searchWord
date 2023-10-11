@@ -8,8 +8,6 @@ import sopadeletras.sopaletras.entities.WordSearchInput;
 import sopadeletras.sopaletras.entities.WordSearchOutput;
 import sopadeletras.sopaletras.services.WordSearchService;
 
-import java.util.Arrays;
-
 /**
  *
  * @author milton-adrian
