@@ -14,15 +14,18 @@ import sopadeletras.sopaletras.services.WordSearchService;
  */
 @RestController
 public class WordSearchController {
+    // verifica que este respondiendo, devolviendo true
     @RequestMapping(value= "/", method=RequestMethod.GET)
     public boolean ping() {
         return true;
     }
+    // realiza la busqueda y objtiene los valores de la matrix
     @RequestMapping(value= "/search-horandvert/", method=RequestMethod.POST)
     public WordSearchOutput search(@RequestBody WordSearchInput wordSearchInput) {
         char[][] matrix = fillMatrix(wordSearchInput.getRows(),wordSearchInput.getSearchword());
         String word = wordSearchInput.getWord();
         boolean wordFound = WordSearchService.search(matrix, word);
+        // si encuentra la palabra retorna en el contains true, en caso contrario retorna false
         if(wordFound) {
             return new WordSearchOutput(wordSearchInput.getSearchword(),
                     wordSearchInput.getRows(),
@@ -40,6 +43,7 @@ public class WordSearchController {
         }
     }
 
+    //crea la sopa de letras y particion de las filas y columnas
     private char[][] fillMatrix(int rows, String searchword) {
         char [][] matrix = new char[rows][];
         int amount = searchword.length() / rows;
@@ -48,7 +52,7 @@ public class WordSearchController {
             matrix[col] = searchword.substring(i, i + amount).toCharArray();
             col++;
         }
+        // searchword.contains()
         return matrix;
     }
 }
-

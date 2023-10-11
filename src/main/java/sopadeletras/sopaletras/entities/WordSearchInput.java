@@ -1,11 +1,12 @@
 package sopadeletras.sopaletras.entities;
 
-
+//clase padre
 public class WordSearchInput {
     private String searchword;
     private int rows;
     private String word;
 
+    // constructor
     public WordSearchInput(String searchword, int rows, String word) {
         this.searchword = searchword;
         this.rows = rows;

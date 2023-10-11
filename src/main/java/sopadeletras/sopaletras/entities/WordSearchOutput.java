@@ -2,12 +2,14 @@ package sopadeletras.sopaletras.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+// clase hija que hereda de la clase principal WordSearchInput
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class WordSearchOutput extends WordSearchInput {
     private boolean contains;
     private Integer start_row;
     private Integer start_col;
 
+    //constructor
     public WordSearchOutput(String searchword, int rows, String word, boolean contains) {
         super(searchword, rows, word);
         this.contains = contains;
